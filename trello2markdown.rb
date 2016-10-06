@@ -18,7 +18,7 @@ class Trello2markdown
       puts "\n##{board.name}"
       board.lists.each do |list|
         puts "\n###{list.name}"
-        board.cards.each do |card|
+        list.cards.each do |card|
           puts "- #{card.name}"
         end
       end
