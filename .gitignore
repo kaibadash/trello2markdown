@@ -29,3 +29,4 @@ lib/disposable/*
 
 .ruby-version
 .rubocop-https*
+.env
