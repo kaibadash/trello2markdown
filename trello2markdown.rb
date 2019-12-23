@@ -12,14 +12,17 @@ class Trello2markdown
     end
   end
 
-  def puts_markdown(target_borads)
+  def puts_markdown(argv)
     boards = Trello::Board.all
+    target_board = argv[0] if argv.present?
+    target_lists = argv[1..] if argv.length > 1
     boards.each do |board|
       next if board.closed?
-      next if target_borads.present? && !target_borads.include?(board.name)
-      puts "\n##{board.name}"
+      next unless target_board == board.name
+      puts "\n##{board.name}" unless target_board.present?
       board.lists.each do |list|
         next if list.closed?
+        next if target_lists.present? && !target_lists.include?(list.name)
         puts "\n###{list.name}"
         list.cards.each do |card|
           next if card.closed?
