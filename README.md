@@ -25,9 +25,14 @@ If you want to copy output to clipboard(MacOS).
 ruby trello2markdown.rb | pbcopy
 ```
 
-## options: filter by board name
+## options: filter by board name and list name
 
 ```
-ruby trello2markdown.rb TARGET_BOARD1 TARGET_BOARD2
+ruby trello2markdown.rb WorkBoard ToDo Done
 ```
 
+## options: clear done
+
+```
+ruby clear_done.rb WorkBoard Done
+```
