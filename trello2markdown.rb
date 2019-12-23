@@ -19,11 +19,11 @@ class Trello2markdown
     boards.each do |board|
       next if board.closed?
       next unless target_board == board.name
-      puts "\n##{board.name}" unless target_board.present?
+      puts "\n# #{board.name}" unless target_board.present?
       board.lists.each do |list|
         next if list.closed?
         next if target_lists.present? && !target_lists.include?(list.name)
-        puts "\n###{list.name}"
+        puts "\n## #{list.name}"
         list.cards.each do |card|
           next if card.closed?
           puts "- #{card.name}"
